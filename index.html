@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>COSMIC.ID</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- TOP LEFT -->
+<div id="label">✦ COSMIC.ID</div>
+<div id="timeBox">
+  <div id="utcTime">UTC: —</div>
+  <div id="wibTime">WIB: —</div>
+</div>
+
+<!-- TOP RIGHT -->
+<div id="topRight">
+  <button class="tbtn" id="langBtn" onclick="toggleLang()">🌐 EN</button>
+  <button class="tbtn" onclick="toggleInfo()">☰ INFO</button>
+</div>
+
+<!-- INFO MENU -->
+<div id="infoMenu">
+  <h3>✦ COSMIC.ID</h3>
+  <p id="t-desc">Simulasi tata surya 3D dengan orbit elips realistis berdasarkan waktu UTC nyata.</p>
+  <p>📅 <span id="t-created">Dibuat</span>: 4 Maret 2026</p>
+  <div id="uptimeBox">
+    <div id="uptimeLabel">⏱ SUDAH BERJALAN</div>
+    <div id="uptimeValue">—</div>
+    <div id="uptimeSub">sejak pertama kali dibuat</div>
+  </div>
+  <hr style="border-color:rgba(255,255,255,0.1);margin:11px 0">
+  <p style="color:rgba(255,200,50,0.85)" id="t-belts">Asteroid Belts:</p>
+  <p>🪨 <span id="t-main">Main Belt: antara Mars &amp; Jupiter</span><br>
+     ☄️ <span id="t-kuiper">Kuiper Belt: di luar Neptunus</span></p>
+  <hr style="border-color:rgba(255,255,255,0.1);margin:11px 0">
+  <p style="color:rgba(255,200,50,0.85)">Orbital Periods:</p>
+  <p>
+    Mercury: 87.97d &nbsp;|&nbsp; Venus: 224.70d<br>
+    Earth: 365.25d &nbsp;|&nbsp; Mars: 686.97d<br>
+    Jupiter: 11.86y &nbsp;|&nbsp; Saturn: 29.46y<br>
+    Uranus: 84.01y &nbsp;|&nbsp; Neptune: 164.80y
+  </p>
+  <div id="socialBox">📸 IG: @A3THEER &nbsp;|&nbsp; 🎵 TT: @AL7EX</div>
+</div>
+
+<!-- TIME CONTROL BAR -->
+<div id="timeBar">
+  <button onclick="changeSpeed(-1)" title="Slower">⏪</button>
+  <button id="pauseBtn" onclick="togglePause()">⏸</button>
+  <button onclick="changeSpeed(1)"  title="Faster">⏩</button>
+  <span id="speedLabel">1× real</span>
+  <span id="simDate">—</span>
+  <button onclick="resetToNow()" title="Reset ke sekarang" style="font-size:12px;padding:2px 7px">↺</button>
+</div>
+
+<!-- POPUP OVERLAY -->
+<div id="overlay" onclick="overlayClick(event)">
+  <div id="popup">
+    <button id="popupClose" onclick="closePopup()">✕</button>
+    <div class="popup-header">
+      <canvas id="popupIcon" width="50" height="50"></canvas>
+      <div>
+        <div id="popupName">—</div>
+        <div id="popupType">—</div>
+      </div>
+    </div>
+    <div class="popup-stats">
+      <div>
+        <div class="stat-lbl" id="t-period">Periode Orbit</div>
+        <div class="stat-val" id="popupPeriod">—</div>
+      </div>
+      <div>
+        <div class="stat-lbl" id="popupDistLbl">Jarak dari Matahari</div>
+        <div class="stat-val" id="popupDist">—</div>
+      </div>
+      <div>
+        <div class="stat-lbl" id="t-diam">Diameter</div>
+        <div class="stat-val" id="popupDiam">—</div>
+      </div>
+      <div>
+        <div class="stat-lbl" id="t-temp">Suhu</div>
+        <div class="stat-val" id="popupTemp">—</div>
+      </div>
+    </div>
+    <div class="facts-title" id="t-facts">✦ Fakta Menarik</div>
+    <div id="popupFacts"></div>
+    <div id="moonsWrap" style="display:none">
+      <div class="moons-title" id="t-moons">🌙 Bulan — klik untuk info</div>
+      <div id="popupMoons"></div>
+    </div>
+  </div>
+</div>
+
+<!-- TOOLTIP -->
+<div id="tooltip"></div>
+
+<!-- FOOTER -->
+<footer>© A3THER.COM — VERSION 3.0</footer>
+
+<!-- THREE.JS LIBS -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/renderers/CSS2DRenderer.js"></script>
+
+<!-- COSMIC.ID MODULES (order matters) -->
+<script src="js/database.js"></script>  <!-- 1. data -->
+<script src="js/lang.js"></script>      <!-- 2. i18n -->
+<script src="js/ui.js"></script>        <!-- 3. popup, timebar, clock -->
+<script src="js/scene.js"></script>     <!-- 4. three.js simulation -->
+
+</body>
+</html>
