@@ -89,16 +89,30 @@ function hexToRgb(hex) {
   return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
 }
 
+const textureLoader = new THREE.TextureLoader();
+
+const TEXTURES = {
+  Sun:     'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/The_Sun_by_the_Atmospheric_Imaging_Assembly_of_NASA%27s_Solar_Dynamics_Observatory_-_20100819.jpg/1024px-The_Sun_by_the_Atmospheric_Imaging_Assembly_of_NASA%27s_Solar_Dynamics_Observatory_-_20100819.jpg',
+  Mercury: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Mercury_in_true_color.jpg/600px-Mercury_in_true_color.jpg',
+  Venus:   'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Venus-real_color.jpg/600px-Venus-real_color.jpg',
+  Earth:   'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/The_Blue_Marble_%28remastered%29.jpg/600px-The_Blue_Marble_%28remastered%29.jpg',
+  Mars:    'https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/OSIRIS_Mars_true_color.jpg/600px-OSIRIS_Mars_true_color.jpg',
+  Jupiter: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Jupiter_and_its_shrunken_Great_Red_Spot.jpg/600px-Jupiter_and_its_shrunken_Great_Red_Spot.jpg',
+  Saturn:  'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Saturn_during_Equinox.jpg/600px-Saturn_during_Equinox.jpg',
+  Uranus:  'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Uranus2.jpg/600px-Uranus2.jpg',
+  Neptune: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Neptune_-_Voyager_2_%2829347980845%29_flatten_crop.jpg/600px-Neptune_-_Voyager_2_%2829347980845%29_flatten_crop.jpg',
+};
+
 function makeSphere(name, radius, hex) {
-  const [r, g, b] = hexToRgb(hex);
   const geo = new THREE.SphereGeometry(radius, 32, 32);
+  const tex = TEXTURES[name] ? textureLoader.load(TEXTURES[name]) : null;
   const mat = new THREE.MeshStandardMaterial({
-    color: new THREE.Color(r / 255, g / 255, b / 255),
-    roughness: 0.75, metalness: 0.05,
-    emissive: (name === 'Sun')
-      ? new THREE.Color(r / 255 * 0.5, g / 255 * 0.3, 0)
-      : new THREE.Color(0, 0, 0),
-    emissiveIntensity: (name === 'Sun') ? 1.5 : 0,
+    map: tex || null,
+    color: tex ? 0xffffff : new THREE.Color(hex),
+    roughness: 0.8,
+    metalness: 0.05,
+    emissive: (name === 'Sun') ? new THREE.Color(0.6, 0.3, 0) : new THREE.Color(0,0,0),
+    emissiveIntensity: (name === 'Sun') ? 1.2 : 0,
   });
   const mesh = new THREE.Mesh(geo, mat);
   mesh.userData.name = name;
