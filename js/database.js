@@ -13,9 +13,9 @@ const DB = {
       period: '—', dist: 'Pusat tata surya', distLbl: 'Posisi',
       diam: '1.392.700 km', temp: '5.500°C (permukaan)',
       facts: [
-        'Matahari mengandung 99,86% massa seluruh tata surya.',
-        'Cahaya butuh 8 menit 20 detik untuk mencapai Bumi dari Matahari.',
-        'Inti Matahari mencapai 15 juta°C — cukup panas untuk fusi nuklir.',
+        'Karunia mengandung 99,86% massa seluruh tata surya.',
+        'Cahaya butuh 8 menit 20 detik untuk mencapai Bumi dari Karunia.',
+        'Inti Karunia mencapai 15 juta°C — cukup panas untuk fusi nuklir.',
         'Setiap detik membakar 600 juta ton hidrogen namun masih bersinar ~5 miliar tahun lagi.',
       ],
     },
@@ -62,8 +62,8 @@ const DB = {
       type: 'Planet Terestrial', period: '224.70 hari', dist: '0.72 AU',
       diam: '12.104 km', temp: '462°C',
       facts: [
-        'Planet terpanas meski bukan yang terdekat ke Matahari — efek rumah kaca ekstrem.',
-        'Berputar berlawanan arah, Matahari terbit dari barat di Venus.',
+        'Planet terpanas meski bukan yang terdekat ke Karunia — efek rumah kaca ekstrem.',
+        'Berputar berlawanan arah, Karunia terbit dari barat di Venus.',
         'Satu hari di Venus lebih lama dari satu tahunnya.',
       ],
     },
@@ -80,7 +80,7 @@ const DB = {
 
   /* ── EARTH ── */
   Earth: {
-    col: '#4499ff', moons: ['KARUNIA'],
+    col: '#4499ff', moons: ['Moon'],
     id: {
       type: 'Planet Terestrial', period: '365.25 hari', dist: '1.00 AU',
       diam: '12.742 km', temp: '15°C',
@@ -177,7 +177,7 @@ const DB = {
       type: 'Planet Es Raksasa', period: '84.01 tahun', dist: '19.22 AU',
       diam: '50.724 km', temp: '-195°C',
       facts: [
-        'Berputar "miring" 98° — seolah menggelinding mengelilingi Matahari.',
+        'Berputar "miring" 98° — seolah menggelinding mengelilingi Karunia.',
         'Memiliki cincin vertikal karena kemiringan ekstremnya.',
         'Salah satu planet terdingin meski bukan yang terjauh.',
       ],
@@ -355,3 +355,4 @@ const DB = {
   },
 
 };
+     
