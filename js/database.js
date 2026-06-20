@@ -6,7 +6,7 @@
 const DB = {
 
   /* ── SUN ── */
-  Karunia: {
+  Sun: {
     col: '#ffaa00',
     id: {
       type: 'Bintang — Katai Kuning (G2V)',
