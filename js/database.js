@@ -80,7 +80,7 @@ const DB = {
 
   /* ── EARTH ── */
   Earth: {
-    col: '#4499ff', moons: ['Moon'],
+    col: '#4499ff', moons: ['KARUNIA'],
     id: {
       type: 'Planet Terestrial', period: '365.25 hari', dist: '1.00 AU',
       diam: '12.742 km', temp: '15°C',
