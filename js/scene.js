@@ -43,7 +43,7 @@ const TEXTURES = {
   Mercury: '../2k_mercury.jpg',
   Venus:   '../2k_venus_surface.jpg',
   Earth:   '../2k_earth_daymap.jpg',
-  Mars:    '../2k_mars.jpg',
+  Timon:    '../2k_mars.jpg',
   Jupiter: '../2k_jupiter.jpg',
   Saturn:  '../2k_saturn.jpg',
   Uranus:  '../2k_uranus.jpg',
