@@ -102,7 +102,7 @@ const DB = {
   },
 
   /* ── MARS ── */
-  Mars: {
+  Timon: {
     col: '#ff5544', moons: ['Phobos', 'Deimos'],
     id: {
       type: 'Planet Terestrial', period: '686.97 hari', dist: '1.52 AU',
